@@ -1,0 +1,9 @@
+解决centos7中使用service iptables stop 显示not loaded
+
+centos从7开始默认用的是firewalld，这个是基于iptables的，虽然有iptables的核心，但是iptables的服务是没安装的。所以你只要停止firewalld服务即可： 
+sudo systemctl stop firewalld.service && sudo systemctl disable firewalld.service
+
+如果你要改用iptables的话，需要安装iptables服务： 
+sudo yum install iptables-services 
+sudo systemctl enable iptables && sudo systemctl enable ip6tables 
+sudo systemctl start iptables && sudo systemctl start ip6tables

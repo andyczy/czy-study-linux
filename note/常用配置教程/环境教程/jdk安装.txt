@@ -1,0 +1,38 @@
+解压到安装目录
+通过终端在/usr/local目录下新建java文件夹，命令行：
+	mkdir /usr/local/java
+
+然后将下载到压缩包拷贝到java文件夹中，命令行：
+进入jdk源码包所在目录
+	cp jdk-7u45-linux-x64.tar.gz /usr/local/java
+
+然后进入java目录，命令行：
+	cd /usr/local/java
+
+解压压缩包，命令行：
+	tar -zxvf jdk-7u45-linux-x64.tar.gz
+
+然后可以把压缩包删除，命令行：（不删留下没事）
+	rm jdk-7u45-linux-x64.tar.gz
+
+设置jdk环境变量、这里采用全局设置方法，就是修改etc/profile，它是是所有用户的共用的环境变量
+	vim /etc/profile
+
+打开之后在末尾添加
+#java jdk start
+export JAVA_HOME=/usr/local/java/jdk1.8.0_121
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export PATH=$JAVA_HOME/bin:$PATH
+#java jdk end
+
+使profile生效
+	source /etc/profile
+
+看看是否安装成功
+	java -version
+
+
+
+
+
+

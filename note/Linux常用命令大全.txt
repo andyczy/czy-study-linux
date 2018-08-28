@@ -1,0 +1,582 @@
+————————————————————————————————————————————————————————————————————————————
+博客地址：http://blog.csdn.net/javawebrookie
+		  http://c.biancheng.net/cpp/html/2735.html
+————————————————————————————————————————————————————————————————————————————
+【vi vim 编辑器】
+————————————————————————————————————————————————————————————————————————————
+【工作模式】
+	普通模式（普通模式下可以执行命令、保存文件、移动光标、粘贴复制等）
+	编辑模式（编辑模式主要用于文本的编辑）
+	命令模式（执行一些如字符串查找、替换、显示行号等操作还是必须要进入命令模式）
+	
+【工作模式切换】
+	在普通模式下输入 i(插入)、c(修改)、o(另起一行) 命令时进入编辑模式；按 esc 键退回到普通模式。
+	在普通模式下输入冒号(:)可以进入命令模式。输入完命令按回车，命令执行完后会自动退回普通模式。
+	
+【移动光标】
+	k							向上移动光标（移动一行）
+	j							向下移动光标（移动一行）
+	h							向左移动光标（移动一个字符）
+	l							向右移动光标（移动一个字符）
+	
+【删除字符】
+	x							删除当前光标下的字符
+	X							删除光标前面的字符
+	dw							删除从当前光标到单词结尾的字符
+	d^							删除从当前光标到行首的字符
+	d$							删除从当前光标到行尾的字符
+	D							删除从当前光标到行尾的字符
+	dd							删除当前光标所在的行
+	
+【粘贴复制】
+	yy							复制当前行
+	nyy							复制n行
+	yw							复制一个字（单词）
+	nyw							复制n行
+	p							将复制的文本粘贴到光标后面
+	P							将复制的文本粘贴到光标前面
+	
+【文本替换】   
+	:s/from/to/   			   （s即substitude）
+	:s/from/to/    				将当前行中的第一个from，替换成to。如果当前行含有多个from，则只会替换其中的第一个。
+	:s/from/to/g   				将当前行中的所有from都替换成to。
+	:s/from/to/gc  				将当前行中的所有from都替换成to，但是每一次替换之前都会询问请求用户确认此操作。
+	
+【常用命令】
+	yum -y install vim*			安装vim（vi系统自带）
+	vim 目标文件				打开编辑
+	i							进入编辑
+	esc/ctrl + c				退出编辑
+	:q							退出，如果文件未被修改，会直接退回到Shell；否则提示保存文件
+	:q!							强行退出，不保存修改内容
+	:wq							退出，w 命令保存文件，q 命令退出 vi，合起来就是保存并退出
+	ZZ							保存并退出，相当于 wq，但是更加方便
+	/文本						查看文本，回车跳到该文本位置
+	H							移动到屏幕顶部
+	M							移动到屏幕中间
+	L							移动到屏幕底部
+	:x							表示移动到行号为 x 的行，x 是一个数字
+————————————————————————————————————————————————————————————————————————————
+
+
+
+————————————————————————————————————————————————————————————————————————————
+【shell Script】
+————————————————————————————————————————————————————————————————————————————
+【Shell有两种执行命令的方式】
+交互式（Interactive）：解释执行用户的命令，用户输入一条命令，Shell就解释执行一条。
+批处理（Batch）：用户事先写一个Shell脚本(Script)，其中有很多条命令，让Shell一次把这些命令执行完，而不必一条一条地敲命令。
+
+Shell是一种脚本语言，那么，就必须有解释器来执行这些脚本。
+Unix/Linux上常见的Shell脚本解释器有bash、sh、csh、ksh等，习惯上把它们称作一种Shell。
+
+【运行Shell脚本有两种方法】
+一、作为可执行程序
+	chmod +x ./test.sh  #使脚本具有执行权限
+	./test.sh  #执行脚本
+二、作为解释器参数
+这种运行方式是，直接运行解释器，其参数就是shell脚本的文件名，如：
+	/bin/sh test.sh
+	/bin/php test.php
+
+
+【常见shell命令】
+vim shutdowm.sh					批处理操作
+chmod +x shutdowmall.sh 
+————————————————————————————————————————————————————————————————————————————
+
+————————————————————————————————————————————————————————————————————————————
+【Secure CRT Application】
+————————————————————————————————————————————————————————————————————————————
+yum install lrzsz				安装lrzsz
+yum -y install vim*				安装 vim
+rz								上传本地的文件到linux平台
+sz + 文件完整路径				下载到了本地夹
+ssh 用户名@ip/主机名			连接
+————————————————————————————————————————————————————————————————————————————
+
+————————————————————————————————————————————————————————————————————————————
+【Maven】
+————————————————————————————————————————————————————————————————————————————
+mvn package						打包
+mvn install -DskipTests			安装跳过测试
+mvn compile						编译
+mvn test-compile				编译测试程序
+mvn clean						清空
+mvn test						运行测试
+mvn site						生成站点目录
+git rm -rf --cached .idea
+————————————————————————————————————————————————————————————————————————————
+
+
+
+————————————————————————————————————————————————————————————————————————————
+【系统信息】
+————————————————————————————————————————————————————————————————————————————
+arch 							显示机器的处理器架构(1)-（x86_64）
+uname -m 						显示机器的处理器架构(2)-（x86_64）
+cat /proc/meminfo				查看系统内存使用情况
+free -h							快速查看内存使用情况
+vmstat -s						显示实时的和平均的统计，覆盖CPU、内存、I/O等内容
+df -h							查看硬盘和分区
+fdisk -l						查看分区
+du /目录 -sh					查看目录全部占用的空间
+rpm -qa							查看现在已经安装了那些软件包
+rpm -qa | wc -l					查看现在已经安装了那些软件包
+yum list installed | wc -l		查看现在已经安装了那些软件包
+uname -r 						显示正在使用的内核版本
+dmidecode -q 					显示硬件系统部件 - (SMBIOS / DMI)
+hdparm -i /dev/hda 				罗列一个磁盘的架构特性
+hdparm -tT /dev/sda 			在磁盘上执行测试性读取操作
+cat /proc/cpuinfo 				显示CPU info的信息
+cat /proc/interrupts 			显示中断
+cat /proc/meminfo 				校验内存使用
+cat /proc/swaps 				显示哪些swap被使用
+cat /proc/version 				显示内核的版本
+cat /proc/net/dev 				显示网络适配器及统计
+cat /proc/mounts 				显示已加载的文件系统
+lspci -tv 罗列 PCI 				设备
+lsusb -tv 显示 USB 				设备
+date 							显示系统日期
+cal 2017 						显示2017年的日历表
+date 041217002007.00 			设置日期和时间 - 月日时分年.秒
+clock -w 						将时间修改保存到 BIOS
+ps -ef | grep tomcat			端口
+ps aux|grep 文件名				查看任务进程
+netstat -ano					显示端口状态
+tail -f 名称  					查看日志
+lsof -i:8080					查看端口是否被用
+kill -9 pid   					强制关闭端口
+netstat -ntlp					查看端口占用情况命令
+/etc/init.d/network restart 	重启网卡
+————————————————————————————————————————————————————————————————————————————
+
+————————————————————————————————————————————————————————————————————————————
+【管理用户】
+————————————————————————————————————————————————————————————————————————————
+useradd	 用户名					添加用户
+passw 	 密码					修改密码
+su								切换用户
+loginout						退出登录
+userdel	 用户名					删除用户
+userdel -r 用户名				删除用户及其用户主目录
+
+默认的用户组通常用来管理系统用户，不建议将普通用户添加到这些用户组。
+使用groupadd命令创建用户组的语法为：
+
+groupadd [-g gid [-o]] [-r] [-f] groupname
+
+	-g GID		以数字表示的用户组ID。
+	-o			可以使用重复的组ID。
+	-r			建立系统组，用来管理系统用户。
+	-f			强制创建。
+	groupname	用户组的名称。
+
+
+groupadd  名					创建组
+cat/etc/group					查看所有组
+vim /etc/group					查看所有组[可修改]
+cat/etc/passwd					查看用户信息
+vi /etc/passwd					查看用户信息[可修改]
+useradd  -g 组名 用户名 		指定用户分配到组
+usermod  -g 组名 用户名 		指定用户移动到别的组
+chomd 777 用户名				修改该用户的权限
+————————————————————————————————————————————————————————————————————————————
+
+
+
+————————————————————————————————————————————————————————————————————————————
+【系统的关机、重启、查看IP地址、图形界面切换】
+————————————————————————————————————————————————————————————————————————————
+shutdown -h now 				关闭系统(1)
+init 0 							关闭系统(2)
+telinit 0 						关闭系统(3)
+shutdown -h hours:minutes & 	按预定时间关闭系统
+shutdown -c 					取消按预定时间关闭系统
+shutdown -r now 				重启(1)
+reboot 							重启(2)
+logout 							注销
+CTRL+C							完成动作
+ip addr  						查看IP
+ifconfig 						查看IP
+clear							清除当前界面
+ALT+CTRL+F2						切换到命令行界面
+ALT+CTRL+F1						切换到图形界面
+————————————————————————————————————————————————————————————————————————————
+
+
+
+
+
+————————————————————————————————————————————————————————————————————————————
+【文件和目录】
+————————————————————————————————————————————————————————————————————————————
+cd /home 						进入 '/ home' 目录'
+cd .. 							返回上一级目录
+cd ../.. 						返回上两级目录
+cd 								进入个人的主目录
+cd - 							返回上次所在的目录
+pwd 							显示工作路径
+ls 								查看目录中的文件
+ls -F 							查看目录中的文件
+ls -l 							显示文件和目录的详细资料
+ls -a 							显示隐藏文件
+ls *[0-9]* 						显示包含数字的文件名和目录名
+tree 							显示文件和目录由根目录开始的树形结构(1)
+lstree 							显示文件和目录由根目录开始的树形结构(2)
+mkdir dir1 						创建一个叫做 'dir1' 的目录'
+mkdir dir1 dir2 				同时创建两个目录
+mkdir -p /tmp/dir1/dir2 		创建一个目录树
+rm -f file1 					删除一个叫做 'file1' 的文件'
+rmdir dir1 						删除一个叫做 'dir1' 的目录'
+rm -rf dir1 					删除一个叫做 'dir1' 的目录并同时删除其内容
+rm -rf dir1 dir2 				同时删除两个目录及它们的内容
+mv dir1 new_dir 				重命名/移动 一个目录
+cp file1 file2 					复制一个文件
+cp dir/* . 						复制一个目录下的所有文件到当前工作目录
+cp -a /tmp/dir1 . 				复制一个目录到当前工作目录
+cp -a dir1 dir2 				复制一个目录
+ln -s file1 lnk1 				创建一个指向文件或目录的软链接
+ln file1 lnk1 					创建一个指向文件或目录的物理链接
+iconv -l 						列出已知的编码
+mkdir							建立目录
+emdir							删除空目录
+rm -rf 完整地址					删除
+tar -xvfj archive.tar.bz2 		解压一个bzip2格式的压缩包	
+tar -zxvf 文件名				解压 格式 进度 指定文件
+tar -cvfz archive.tar.gz dir1 	创建一个gzip格式的压缩包
+yum install -y unzip zip
+unzip 文件名 -d ROOT			解压并把目录命名为 ROOT
+make							编译
+make install					编译安装
+chmod +x 文件名.sh				可执行文件
+mv dir1 new_dir 				重命名/移动 一个目录
+cp zoo_sample.cfg zoo.cfg   	复制、重命名
+ls -lh 目录文件 				查看文件大小
+scp -r 目录文件  root@ip:/		复制到别的机器的根目录
+
+wc 文件名学 					使用 wc 命令来统计当前文件的行数、单词数和字符数
+	1958  29429 341035 zookeeper.out
+	第一列：文件的总行数
+	第二列：单词数目
+	第三列：文件的字节数，即文件的大小
+	第四列：文件名
+	
+使用mail命令发送和接收邮件（没有成功）
+	mail -s "Test Message" 649954910@qq.com		
+	mail [-s subject] [-c cc-addr] [-b bcc-addr] to-addr
+	  -s 标题    
+	  -c 要发送的用户，多个用户以逗号(,)分隔。 
+	  -b 需要密件发送（密送）的用户，多个用户以逗号(,)分隔。
+	  
+也可以通过重定向操作符 < 来发送文件
+	mail -s "Report 05/06/07" 649954910@qq.com < demo.txt
+接收邮件不需要任何参数：
+	$mail
+	no email
+————————————————————————————————————————————————————————————————————————————
+
+
+————————————————————————————————————————————————————————————————————————————
+【防火墙 centos-7】
+————————————————————————————————————————————————————————————————————————————
+1、关闭防火墙：sudo systemctl stop firewalld.service	
+2、开启防火墙： systemctl start firewalld.service
+3、查询防火墙状态：firewall-cmd --state
+4、关闭开机启动：sudo systemctl disable firewalld.service
+5. 设置iptables防火墙开机启动：sudo systemctl enable iptables
+6、编辑防火墙配置文件:vim /etc/sysconfig/iptables 
+7、安装iptables防火墙：sudo yum install iptables-services
+————————————————————————————————————————————————————————————————————————————
+
+
+————————————————————————————————————————————————————————————————————————————
+【grep命令】
+————————————————————————————————————————————————————————————————————————————
+grep 是一个强大的文本搜索工具，可以使用正则表达式，并返回匹配的行，语法为：
+	$grep pattern file(s)
+
+“grep”源于 ed（Linux的一个行文本编辑器）的 g/re/p 命令，g/re/p 是“globally 
+	search for a regular expression and print all lines containing it”的缩
+	写，意思是使用正则表达式进行全局检索，并把匹配的行打印出来。
+
+grep 可以看做是一个过滤器，如果没有为 grep 指定要检索的文件，那么它会从标准
+	输入设备（一般是键盘）读取；其他过滤器也是如此。
+grep 命令最简单的使用就是检索包含固定字符的文本。
+
+-v	反转查询，输出不匹配的行。例如，grep -v "test" demo.txt 将输出不包含"test"的行。
+-n	输出匹配的行以及行号。
+-l	输出匹配的行所在的文件名。
+-c	输出匹配的总行数。
+-i	不区分大小写进行匹配。
+————————————————————————————————————————————————————————————————————————————
+
+
+
+【文件搜索】
+————————————————————————————————————————————————————————————————————————————
+find / -name file1 从 '/' 开始进入根文件系统搜索文件和目录
+find / -user user1 搜索属于用户 'user1' 的文件和目录
+find /home/user1 -name \*.bin 在目录 '/ home/user1' 中搜索带有'.bin' 结尾的文件
+find /usr/bin -type f -atime +100 搜索在过去100天内未被使用过的执行文件
+find /usr/bin -type f -mtime -10 搜索在10天内被创建或者修改过的文件
+find / -name \*.rpm -exec chmod 755 '{}' \; 搜索以 '.rpm' 结尾的文件并定义其权限
+find / -xdev -name \*.rpm 搜索以 '.rpm' 结尾的文件，忽略光驱、捷盘等可移动设备
+locate \*.ps 寻找以 '.ps' 结尾的文件 - 先运行 'updatedb' 命令
+whereis halt 显示一个二进制文件、源码或man的位置
+which halt 显示一个二进制文件或可执行文件的完整路径
+————————————————————————————————————————————————————————————————————————————
+
+————————————————————————————————————————————————————————————————————————————
+挂载一个文件系统
+————————————————————————————————————————————————————————————————————————————
+mount /dev/hda2 /mnt/hda2 挂载一个叫做hda2的盘 - 确定目录 '/ mnt/hda2' 已经存在
+umount /dev/hda2 卸载一个叫做hda2的盘 - 先从挂载点 '/ mnt/hda2' 退出
+fuser -km /mnt/hda2 当设备繁忙时强制卸载
+umount -n /mnt/hda2 运行卸载操作而不写入 /etc/mtab 文件- 当文件为只读或当磁盘写满时非常有用
+mount /dev/fd0 /mnt/floppy 挂载一个软盘
+mount /dev/cdrom /mnt/cdrom 挂载一个cdrom或dvdrom
+mount /dev/hdc /mnt/cdrecorder 挂载一个cdrw或dvdrom
+mount /dev/hdb /mnt/cdrecorder 挂载一个cdrw或dvdrom
+mount -o loop file.iso /mnt/cdrom 挂载一个文件或ISO镜像文件
+mount -t vfat /dev/hda5 /mnt/hda5 挂载一个Windows FAT32文件系统
+mount /dev/sda1 /mnt/usbdisk 挂载一个usb 捷盘或闪存设备
+mount -t smbfs -o username=user,password=pass //WinClient/share /mnt/share 挂载一个windows网络共享
+
+
+————————————————————————————————————————————————————————————————————————————
+磁盘空间
+————————————————————————————————————————————————————————————————————————————
+df -h 显示已经挂载的分区列表
+ls -lSr |more 以尺寸大小排列文件和目录
+du -sh dir1 估算目录 'dir1' 已经使用的磁盘空间'
+du -sk * | sort -rn 以容量大小为依据依次显示文件和目录的大小
+rpm -q -a --qf '%10{SIZE}t%{NAME}n' | sort -k1,1n 以大小为依据依次显示已安装的rpm包所使用的空间 (fedora, redhat类系统)
+dpkg-query -W -f='${Installed-Size;10}t${Package}n' | sort -k1,1n 以大小为依据显示已安装的deb包所使用的空间 (ubuntu, debian类系统)
+
+
+
+
+
+
+————————————————————————————————————————————————————————————————————————————
+文件的权限 - 使用 "+" 设置权限，使用 "-" 用于取消
+————————————————————————————————————————————————————————————————————————————
+ls -lh 显示权限
+ls /tmp | pr -T5 -W$COLUMNS 将终端划分成5栏显示
+chmod ugo+rwx directory1 设置目录的所有人(u)、群组(g)以及其他人(o)以读（r ）、写(w)和执行(x)的权限
+chmod go-rwx directory1 删除群组(g)与其他人(o)对目录的读写执行权限
+chown user1 file1 改变一个文件的所有人属性
+chown -R user1 directory1 改变一个目录的所有人属性并同时改变改目录下所有文件的属性
+chgrp group1 file1 改变文件的群组
+chown user1:group1 file1 改变一个文件的所有人和群组属性
+find / -perm -u+s 罗列一个系统中所有使用了SUID控制的文件
+chmod u+s /bin/file1 设置一个二进制文件的 SUID 位 - 运行该文件的用户也被赋予和所有者同样的权限
+chmod u-s /bin/file1 禁用一个二进制文件的 SUID位
+chmod g+s /home/public 设置一个目录的SGID 位 - 类似SUID ，不过这是针对目录的
+chmod g-s /home/public 禁用一个目录的 SGID 位
+chmod o+t /home/public 设置一个文件的 STIKY 位 - 只允许合法所有人删除文件
+chmod o-t /home/public 禁用一个目录的 STIKY 位
+————————————————————————————————————————————————————————————————————————————
+
+
+
+————————————————————————————————————————————————————————————————————————————
+文件的特殊属性 - 使用 "+" 设置权限，使用 "-" 用于取消
+————————————————————————————————————————————————————————————————————————————
+chattr +a file1 只允许以追加方式读写文件
+chattr +c file1 允许这个文件能被内核自动压缩/解压
+chattr +d file1 在进行文件系统备份时，dump程序将忽略这个文件
+chattr +i file1 设置成不可变的文件，不能被删除、修改、重命名或者链接
+chattr +s file1 允许一个文件被安全地删除
+chattr +S file1 一旦应用程序对这个文件执行了写操作，使系统立刻把修改的结果写到磁盘
+chattr +u file1 若文件被删除，系统会允许你在以后恢复这个被删除的文件
+lsattr 显示特殊的属性
+————————————————————————————————————————————————————————————————————————————
+
+
+
+
+————————————————————————————————————————————————————————————————————————————
+RPM 包 - （Fedora, Redhat及类似系统）
+rpm -ivh package.rpm 安装一个rpm包
+rpm -ivh --nodeeps package.rpm 安装一个rpm包而忽略依赖关系警告
+rpm -U package.rpm 更新一个rpm包但不改变其配置文件
+rpm -F package.rpm 更新一个确定已经安装的rpm包
+rpm -e package_name.rpm 删除一个rpm包
+rpm -qa 显示系统中所有已经安装的rpm包
+rpm -qa | grep httpd 显示所有名称中包含 "httpd" 字样的rpm包
+rpm -qi package_name 获取一个已安装包的特殊信息
+rpm -qg "System Environment/Daemons" 显示一个组件的rpm包
+rpm -ql package_name 显示一个已经安装的rpm包提供的文件列表
+rpm -qc package_name 显示一个已经安装的rpm包提供的配置文件列表
+rpm -q package_name --whatrequires 显示与一个rpm包存在依赖关系的列表
+rpm -q package_name --whatprovides 显示一个rpm包所占的体积
+rpm -q package_name --scripts 显示在安装/删除期间所执行的脚本l
+rpm -q package_name --changelog 显示一个rpm包的修改历史
+rpm -qf /etc/httpd/conf/httpd.conf 确认所给的文件由哪个rpm包所提供
+rpm -qp package.rpm -l 显示由一个尚未安装的rpm包提供的文件列表
+rpm --import /media/cdrom/RPM-GPG-KEY 导入公钥数字证书
+rpm --checksig package.rpm 确认一个rpm包的完整性
+rpm -qa gpg-pubkey 确认已安装的所有rpm包的完整性
+rpm -V package_name 检查文件尺寸、 许可、类型、所有者、群组、MD5检查以及最后修改时间
+rpm -Va 检查系统中所有已安装的rpm包- 小心使用
+rpm -Vp package.rpm 确认一个rpm包还未安装
+rpm2cpio package.rpm | cpio --extract --make-directories *bin* 从一个rpm包运行可执行文件
+rpm -ivh /usr/src/redhat/RPMS/`arch`/package.rpm 从一个rpm源码安装一个构建好的包
+rpmbuild --rebuild package_name.src.rpm 从一个rpm源码构建一个 rpm 包
+————————————————————————————————————————————————————————————————————————————
+
+YUM 软件包升级器 - （Fedora, RedHat及类似系统）
+yum install package_name 下载并安装一个rpm包
+yum localinstall package_name.rpm 将安装一个rpm包，使用你自己的软件仓库为你解决所有依赖关系
+yum update package_name.rpm 更新当前系统中所有安装的rpm包
+yum update package_name 更新一个rpm包
+yum remove package_name 删除一个rpm包
+yum list 列出当前系统中安装的所有包
+yum search package_name 在rpm仓库中搜寻软件包
+yum clean packages 清理rpm缓存删除下载的包
+yum clean headers 删除所有头文件
+yum clean all 删除所有缓存的包和头文件
+————————————————————————————————————————————————————————————————————————————
+DEB 包 (Debian, Ubuntu 以及类似系统)
+dpkg -i package.deb 安装/更新一个 deb 包
+dpkg -r package_name 从系统删除一个 deb 包
+dpkg -l 显示系统中所有已经安装的 deb 包
+dpkg -l | grep httpd 显示所有名称中包含 "httpd" 字样的deb包
+dpkg -s package_name 获得已经安装在系统中一个特殊包的信息
+dpkg -L package_name 显示系统中已经安装的一个deb包所提供的文件列表
+dpkg --contents package.deb 显示尚未安装的一个包所提供的文件列表
+dpkg -S /bin/ping 确认所给的文件由哪个deb包提供
+————————————————————————————————————————————————————————————————————————————
+
+APT 软件工具 (Debian, Ubuntu 以及类似系统)
+apt-get install package_name 安装/更新一个 deb 包
+apt-cdrom install package_name 从光盘安装/更新一个 deb 包
+apt-get update 升级列表中的软件包
+apt-get upgrade 升级所有已安装的软件
+apt-get remove package_name 从系统删除一个deb包
+apt-get check 确认依赖的软件仓库正确
+apt-get clean 从下载的软件包中清理缓存
+apt-cache search searched-package 返回包含所要搜索字符串的软件包名称
+————————————————————————————————————————————————————————————————————————————
+
+
+————————————————————————————————————————————————————————————————————————————
+文本处理
+————————————————————————————————————————————————————————————————————————————
+cat file1 file2 ... | command <> file1_in.txt_or_file1_out.txt general syntax for text manipulation using PIPE, STDIN and STDOUT
+cat file1 | command( sed, grep, awk, grep, etc...) > result.txt 合并一个文件的详细说明文本，并将简介写入一个新文件中
+cat file1 | command( sed, grep, awk, grep, etc...) >> result.txt 合并一个文件的详细说明文本，并将简介写入一个已有的文件中
+grep Aug /var/log/messages 在文件 '/var/log/messages'中查找关键词"Aug"
+grep ^Aug /var/log/messages 在文件 '/var/log/messages'中查找以"Aug"开始的词汇
+grep [0-9] /var/log/messages 选择 '/var/log/messages' 文件中所有包含数字的行
+grep Aug -R /var/log/* 在目录 '/var/log' 及随后的目录中搜索字符串"Aug"
+sed 's/stringa1/stringa2/g' example.txt 将example.txt文件中的 "string1" 替换成 "string2"
+sed '/^$/d' example.txt 从example.txt文件中删除所有空白行
+sed '/ *#/d; /^$/d' example.txt 从example.txt文件中删除所有注释和空白行
+echo 'esempio' | tr '[:lower:]' '[:upper:]' 合并上下单元格内容
+sed -e '1d' result.txt 从文件example.txt 中排除第一行
+sed -n '/stringa1/p' 查看只包含词汇 "string1"的行
+sed -e 's/ *$//' example.txt 删除每一行最后的空白字符
+sed -e 's/stringa1//g' example.txt 从文档中只删除词汇 "string1" 并保留剩余全部
+sed -n '1,5p;5q' example.txt 查看从第一行到第5行内容
+sed -n '5p;5q' example.txt 查看第5行
+sed -e 's/00*/0/g' example.txt 用单个零替换多个零
+cat -n file1 标示文件的行数
+cat example.txt | awk 'NR%2==1' 删除example.txt文件中的所有偶数行
+echo a b c | awk '{print $1}' 查看一行第一栏
+echo a b c | awk '{print $1,$3}' 查看一行的第一和第三栏
+paste file1 file2 合并两个文件或两栏的内容
+paste -d '+' file1 file2 合并两个文件或两栏的内容，中间用"+"区分
+sort file1 file2 排序两个文件的内容
+sort file1 file2 | uniq 取出两个文件的并集(重复的行只保留一份)
+sort file1 file2 | uniq -u 删除交集，留下其他的行
+sort file1 file2 | uniq -d 取出两个文件的交集(只留下同时存在于两个文件中的文件)
+comm -1 file1 file2 比较两个文件的内容只删除 'file1' 所包含的内容
+comm -2 file1 file2 比较两个文件的内容只删除 'file2' 所包含的内容
+comm -3 file1 file2 比较两个文件的内容只删除两个文件共有的部分
+————————————————————————————————————————————————————————————————————————————
+
+————————————————————————————————————————————————————————————————————————————
+字符设置和文件格式转换
+————————————————————————————————————————————————————————————————————————————
+dos2unix filedos.txt fileunix.txt 将一个文本文件的格式从MSDOS转换成UNIX
+unix2dos fileunix.txt filedos.txt 将一个文本文件的格式从UNIX转换成MSDOS
+recode ..HTML < page.txt > page.html 将一个文本文件转换成html
+recode -l | more 显示所有允许的转换格式
+————————————————————————————————————————————————————————————————————————————
+
+
+————————————————————————————————————————————————————————————————————————————
+文件系统分析
+————————————————————————————————————————————————————————————————————————————
+badblocks -v /dev/hda1 检查磁盘hda1上的坏磁块
+fsck /dev/hda1 修复/检查hda1磁盘上linux文件系统的完整性
+fsck.ext2 /dev/hda1 修复/检查hda1磁盘上ext2文件系统的完整性
+e2fsck /dev/hda1 修复/检查hda1磁盘上ext2文件系统的完整性
+e2fsck -j /dev/hda1 修复/检查hda1磁盘上ext3文件系统的完整性
+fsck.ext3 /dev/hda1 修复/检查hda1磁盘上ext3文件系统的完整性
+fsck.vfat /dev/hda1 修复/检查hda1磁盘上fat文件系统的完整性
+fsck.msdos /dev/hda1 修复/检查hda1磁盘上dos文件系统的完整性
+dosfsck /dev/hda1 修复/检查hda1磁盘上dos文件系统的完整性
+————————————————————————————————————————————————————————————————————————————
+
+
+————————————————————————————————————————————————————————————————————————————
+初始化一个文件系统
+————————————————————————————————————————————————————————————————————————————
+mkfs /dev/hda1 在hda1分区创建一个文件系统
+mke2fs /dev/hda1 在hda1分区创建一个linux ext2的文件系统
+mke2fs -j /dev/hda1 在hda1分区创建一个linux ext3(日志型)的文件系统
+mkfs -t vfat 32 -F /dev/hda1 创建一个 FAT32 文件系统
+fdformat -n /dev/fd0 格式化一个软盘
+mkswap /dev/hda3 创建一个swap文件系统
+————————————————————————————————————————————————————————————————————————————
+
+
+————————————————————————————————————————————————————————————————————————————
+SWAP文件系统
+mkswap /dev/hda3 创建一个swap文件系统
+swapon /dev/hda3 启用一个新的swap文件系统
+swapon /dev/hda2 /dev/hdb3 启用两个swap分区
+————————————————————————————————————————————————————————————————————————————
+
+
+————————————————————————————————————————————————————————————————————————————
+备份
+dump -0aj -f /tmp/home0.bak /home 制作一个 '/home' 目录的完整备份
+dump -1aj -f /tmp/home0.bak /home 制作一个 '/home' 目录的交互式备份
+restore -if /tmp/home0.bak 还原一个交互式备份
+rsync -rogpav --delete /home /tmp 同步两边的目录
+rsync -rogpav -e ssh --delete /home ip_address:/tmp 通过SSH通道rsync
+rsync -az -e ssh --delete ip_addr:/home/public /home/local 通过ssh和压缩将一个远程目录同步到本地目录
+rsync -az -e ssh --delete /home/local ip_addr:/home/public 通过ssh和压缩将本地目录同步到远程目录
+dd bs=1M if=/dev/hda | gzip | ssh user@ip_addr 'dd of=hda.gz' 通过ssh在远程主机上执行一次备份本地磁盘的操作
+dd if=/dev/sda of=/tmp/file1 备份磁盘内容到一个文件
+tar -Puf backup.tar /home/user 执行一次对 '/home/user' 目录的交互式备份操作
+( cd /tmp/local/ && tar c . ) | ssh -C user@ip_addr 'cd /home/share/ && tar x -p' 通过ssh在远程目录中复制一个目录内容
+( tar c /home ) | ssh -C user@ip_addr 'cd /home/backup-home && tar x -p' 通过ssh在远程目录中复制一个本地目录
+tar cf - . | (cd /tmp/backup ; tar xf - ) 本地将一个目录复制到另一个地方，保留原有权限及链接
+find /home/user1 -name '*.txt' | xargs cp -av --target-directory=/home/backup/ --parents 从一个目录查找并复制所有以 '.txt' 结尾的文件到另一个目录
+find /var/log -name '*.log' | tar cv --files-from=- | bzip2 > log.tar.bz2 查找所有以 '.log' 结尾的文件并做成一个bzip包
+dd if=/dev/hda of=/dev/fd0 bs=512 count=1 做一个将 MBR (Master Boot Record)内容复制到软盘的动作
+dd if=/dev/fd0 of=/dev/hda bs=512 count=1 从已经保存到软盘的备份中恢复MBR内容
+————————————————————————————————————————————————————————————————————————————
+
+
+
+————————————————————————————————————————————————————————————————————————————
+光盘
+cdrecord -v gracetime=2 dev=/dev/cdrom -eject blank=fast -force 清空一个可复写的光盘内容
+mkisofs /dev/cdrom > cd.iso 在磁盘上创建一个光盘的iso镜像文件
+mkisofs /dev/cdrom | gzip > cd_iso.gz 在磁盘上创建一个压缩了的光盘iso镜像文件
+mkisofs -J -allow-leading-dots -R -V "Label CD" -iso-level 4 -o ./cd.iso data_cd 创建一个目录的iso镜像文件
+cdrecord -v dev=/dev/cdrom cd.iso 刻录一个ISO镜像文件
+gzip -dc cd_iso.gz | cdrecord dev=/dev/cdrom - 刻录一个压缩了的ISO镜像文件
+mount -o loop cd.iso /mnt/iso 挂载一个ISO镜像文件
+cd-paranoia -B 从一个CD光盘转录音轨到 wav 文件中
+cd-paranoia -- "-3" 从一个CD光盘转录音轨到 wav 文件中（参数-3）
+cdrecord --scanbus 扫描总线以识别scsi通道
+dd if=/dev/hdc | md5sum 校验一个设备的md5sum编码，例如一张 CD
+————————————————————————————————————————————————————————————————————————————

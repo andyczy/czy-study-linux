@@ -1,0 +1,58 @@
+1.安装Linux
+	file -> open
+2.配置VMware
+	右键 -> settings -> Network Adapter -> host-only
+3.找到VMware安装目录 ->双击vmnetcfg.exe -> vmnet1 -> 
+	配置subnet IP 选择网段 ：192.168.1.0 -> 打开网络中心 ->更改适配器设置 
+	-> 右键VMnet1 -> IPv4 -> 配置window的IP：192.168.1.110
+
+
+
+因为我的DNS没有设置所以导致了ping外网ping不通。将dns添加到该文件中
+[root@localhost ~]# vi /etc/resolv.conf
+nameserver 192.168.92.2 (默认网关)
+nameserver 8.8.8.8
+nameserver 4.4.4.4
+
+
+
+4.配置Linux
+	4.2修改IP为静态IP
+		(强烈推荐第一种方式)
+			进入图形界面 -> 点击右上角的俩个小电脑图标 -> 右键 -> edit connections -> ipv4 -> manual -> 点击add按钮 -> 添加IP，NETMASK, GATEWAY
+		
+		(第二种通过修改文件)
+			vim /etc/sysconfig/network-scripts/ifcfg-en。。。
+			
+			DEVICE="eth0"
+			BOOTPROTO="static"        ###
+			HWADDR="00:0C:29:ED:17:BB"
+			IPV6INIT="yes"
+			NM_CONTROLLED="yes"
+			ONBOOT="yes"
+			TYPE="Ethernet"
+			UUID="ce22eeca-ecde-4536-8cc2-ef0dc36d4a8c"
+			DNS1=8.8.8.8
+			DNS2=4.4.4.4
+			IPADDR="192.168.100.101"
+			NETMASK="255.255.255.0" 
+			GATEWAY="192.168.100.10"
+		
+		重启网卡
+		/etc/init.d/network restart
+
+	4.3配置主机名和IP的映射关系
+		vim /etc/hosts	
+		192.168.92.11   chenzy-1
+		192.168.92.12   chenzy-2
+		192.168.92.13   chenzy-3
+		192.168.92.14   chenzy-4
+				
+		
+	4.4关闭防火墙
+		service iptables status
+		service iptables stop
+		#查看防火墙开机启动状态
+		chkconfig iptables --list
+		#关闭防火墙开机启动
+		chkconfig iptables off

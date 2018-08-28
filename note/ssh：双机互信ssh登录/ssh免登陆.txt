@@ -1,0 +1,36 @@
+
+id_rsa ：私钥 
+id_rsa.pub ：公钥
+
+==============================ssh免登陆===================================
+[root@czy ~]# cd .ssh/
+[root@czy .ssh]# 
+[root@czy .ssh]$ ssh-keygen -t rsa
+Generating public/private rsa key pair.
+
+Enter file in which to save the key (/home/beifeng/.ssh/id_rsa): Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/beifeng/.ssh/id_rsa.
+Your public key has been saved in /home/beifeng/.ssh/id_rsa.pub.
+The key fingerprint is:
+b4:0d:f7:cf:80:f8:86:dc:8d:75:2c:82:c6:06:6a:86 beifeng@hadoop-senior.ibeifeng.com
+The key's randomart image is:
++--[ RSA 2048]----+
+|                 |
+|                 |
+|      . o .      |
+|   . . + B o .   |
+|  E +   S + = o  |
+|   o   + + = *   |
+|        o = . o  |
+|         .       |
+|                 |
++-----------------+
+[beifeng@hadoop-senior .ssh]$ ll
+total 8
+-rw------- 1 beifeng beifeng 1675 Aug 16 13:13 id_rsa
+-rw-r--r-- 1 beifeng beifeng  416 Aug 16 13:13 id_rsa.pub
+
+[root@czy /]# ssh-copy-id root@192.168.92.11
+
+
